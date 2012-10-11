@@ -1,0 +1,357 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Module esearch</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module esearch</h1>
+<ul class="index"><li><a href="#description">Description</a></li><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>elasticsearch engine erlang interface.
+<p>Copyright © 2012 liubin</p>
+
+<p><b>Authors:</b> liubin (<a href="mailto:tryanswer@gmail.com"><tt>tryanswer@gmail.com</tt></a>).</p>
+
+<h2><a name="description">Description</a></h2>elasticsearch engine erlang interface.
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#aliase_index-2">aliase_index/2</a></td><td>aliase index.</td></tr>
+<tr><td valign="top"><a href="#analyze-4">analyze/4</a></td><td>analyze on a text, and return the tokens breakdown of the text.</td></tr>
+<tr><td valign="top"><a href="#bulk-5">bulk/5</a></td><td>bulk.</td></tr>
+<tr><td valign="top"><a href="#clear_cache-3">clear_cache/3</a></td><td>clear cache.</td></tr>
+<tr><td valign="top"><a href="#close_index-2">close_index/2</a></td><td>close index.</td></tr>
+<tr><td valign="top"><a href="#cluster_update_settings-2">cluster_update_settings/2</a></td><td>update cluster wide specific settings.</td></tr>
+<tr><td valign="top"><a href="#count-5">count/5</a></td><td>count query.</td></tr>
+<tr><td valign="top"><a href="#create_index-4">create_index/4</a></td><td>create index.</td></tr>
+<tr><td valign="top"><a href="#delete-5">delete/5</a></td><td>delete typed JSON document.</td></tr>
+<tr><td valign="top"><a href="#delete_by_query-4">delete_by_query/4</a></td><td>delete by query.</td></tr>
+<tr><td valign="top"><a href="#delete_index-2">delete_index/2</a></td><td>delete index.</td></tr>
+<tr><td valign="top"><a href="#delete_mapping-3">delete_mapping/3</a></td><td>delete mapping.</td></tr>
+<tr><td valign="top"><a href="#delete_percolate-3">delete_percolate/3</a></td><td>delete percolator.</td></tr>
+<tr><td valign="top"><a href="#delete_template-2">delete_template/2</a></td><td>delete template.</td></tr>
+<tr><td valign="top"><a href="#exist-5">exist/5</a></td><td>check typed JSON document exist
+  return true| false;.</td></tr>
+<tr><td valign="top"><a href="#explain-6">explain/6</a></td><td>explain.</td></tr>
+<tr><td valign="top"><a href="#flush_and_fresh-2">flush_and_fresh/2</a></td><td>flush.</td></tr>
+<tr><td valign="top"><a href="#flush_and_nofresh-2">flush_and_nofresh/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get-5">get/5</a></td><td>get typed JSON document.</td></tr>
+<tr><td valign="top"><a href="#get_cluster_settings-1">get_cluster_settings/1</a></td><td>get cluster settings.</td></tr>
+<tr><td valign="top"><a href="#get_mapping-3">get_mapping/3</a></td><td>get mapping
+  Indexes: [index, ...].</td></tr>
+<tr><td valign="top"><a href="#get_settings-2">get_settings/2</a></td><td>get setting.</td></tr>
+<tr><td valign="top"><a href="#get_template-2">get_template/2</a></td><td>get template.</td></tr>
+<tr><td valign="top"><a href="#health-3">health/3</a></td><td>cluster health.</td></tr>
+<tr><td valign="top"><a href="#hot_threads-3">hot_threads/3</a></td><td>get the current hot threads on each node in the cluster.</td></tr>
+<tr><td valign="top"><a href="#index-6">index/6</a></td><td>index document.</td></tr>
+<tr><td valign="top"><a href="#more_like_this-5">more_like_this/5</a></td><td>more like this.</td></tr>
+<tr><td valign="top"><a href="#multi_get-5">multi_get/5</a></td><td></td></tr>
+<tr><td valign="top"><a href="#multi_search-5">multi_search/5</a></td><td>multi search.</td></tr>
+<tr><td valign="top"><a href="#nodes_info-3">nodes_info/3</a></td><td>nodes info.</td></tr>
+<tr><td valign="top"><a href="#nodes_stats-3">nodes_stats/3</a></td><td>nodes stats.</td></tr>
+<tr><td valign="top"><a href="#open_index-2">open_index/2</a></td><td>open index.</td></tr>
+<tr><td valign="top"><a href="#optimize-3">optimize/3</a></td><td>optimize indexes.</td></tr>
+<tr><td valign="top"><a href="#percolate-5">percolate/5</a></td><td>register queries against an index, and then send percolate requests which include a doc, and geting back the queries that match on that doc out of the set of registed queries.</td></tr>
+<tr><td valign="top"><a href="#percolate_doc-5">percolate_doc/5</a></td><td>percolate document, get back matched queries.</td></tr>
+<tr><td valign="top"><a href="#put_mapping-5">put_mapping/5</a></td><td>put mapping.</td></tr>
+<tr><td valign="top"><a href="#refresh-2">refresh/2</a></td><td>refresh indexes.</td></tr>
+<tr><td valign="top"><a href="#search_req_body-5">search_req_body/5</a></td><td>search api - request body.</td></tr>
+<tr><td valign="top"><a href="#search_uri_req-4">search_uri_req/4</a></td><td>search api - URI Request.</td></tr>
+<tr><td valign="top"><a href="#segments-2">segments/2</a></td><td>Provide low level segments information that a Lucene index (shard level) is built with.</td></tr>
+<tr><td valign="top"><a href="#shutdown_nodes-3">shutdown_nodes/3</a></td><td>shut nodes.</td></tr>
+<tr><td valign="top"><a href="#snapshot-2">snapshot/2</a></td><td>snapshot/ backup.</td></tr>
+<tr><td valign="top"><a href="#state-2">state/2</a></td><td>cluster state.</td></tr>
+<tr><td valign="top"><a href="#stats-3">stats/3</a></td><td>stats provide statistics on different operations happening on an index
+  Indexes: [index, ...].</td></tr>
+<tr><td valign="top"><a href="#status-3">status/3</a></td><td>get a comprehensive status information of one or more indices.</td></tr>
+<tr><td valign="top"><a href="#template-3">template/3</a></td><td>Index templates allow to define templates that will automatically be applied to new indices created.</td></tr>
+<tr><td valign="top"><a href="#update-6">update/6</a></td><td>update update a document based on script provided.</td></tr>
+<tr><td valign="top"><a href="#update_settings-4">update_settings/4</a></td><td>update settings.</td></tr>
+<tr><td valign="top"><a href="#validate-5">validate/5</a></td><td>validate a potentially expensive query.</td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="aliase_index-2">aliase_index/2</a></h3>
+<div class="spec">
+<p><tt>aliase_index(Url, Json) -&gt; any()</tt></p>
+</div><p>aliase index</p>
+
+<h3 class="function"><a name="analyze-4">analyze/4</a></h3>
+<div class="spec">
+<p><tt>analyze(Url, Index, Params, Json) -&gt; any()</tt></p>
+</div><p>analyze on a text, and return the tokens breakdown of the text.</p>
+
+<h3 class="function"><a name="bulk-5">bulk/5</a></h3>
+<div class="spec">
+<p><tt>bulk(Url, Index, Type, Params, Json) -&gt; any()</tt></p>
+</div><p>bulk.
+  Json: [{action_and_meta_data, document}, ...]</p>
+
+<h3 class="function"><a name="clear_cache-3">clear_cache/3</a></h3>
+<div class="spec">
+<p><tt>clear_cache(Url, Indexes, Params) -&gt; any()</tt></p>
+</div><p>clear cache.
+  Indexes: [index, ...].</p>
+
+<h3 class="function"><a name="close_index-2">close_index/2</a></h3>
+<div class="spec">
+<p><tt>close_index(Url, Index) -&gt; any()</tt></p>
+</div><p>close index</p>
+
+<h3 class="function"><a name="cluster_update_settings-2">cluster_update_settings/2</a></h3>
+<div class="spec">
+<p><tt>cluster_update_settings(Url, Json) -&gt; any()</tt></p>
+</div><p>update cluster wide specific settings.</p>
+
+<h3 class="function"><a name="count-5">count/5</a></h3>
+<div class="spec">
+<p><tt>count(Url, Indexes, Types, Params, Json) -&gt; any()</tt></p>
+</div><p>count query.
+  Indexes: [Index, ...].
+  Types: [Type, ...].</p>
+
+<h3 class="function"><a name="create_index-4">create_index/4</a></h3>
+<div class="spec">
+<p><tt>create_index(Url, Index, Params, Json) -&gt; any()</tt></p>
+</div><p>create index</p>
+
+<h3 class="function"><a name="delete-5">delete/5</a></h3>
+<div class="spec">
+<p><tt>delete(Url, Index, Type, Docid, Params) -&gt; any()</tt></p>
+</div><p>delete typed JSON document.
+  return ok| {error, Reason}.</p>
+
+<h3 class="function"><a name="delete_by_query-4">delete_by_query/4</a></h3>
+<div class="spec">
+<p><tt>delete_by_query(Url, Indexes, Types, Params) -&gt; any()</tt></p>
+</div><p>delete by query.
+  Indexes: [index, ...].
+  Types: [type, ...].
+  Attension: this function doesn't support query body.</p>
+
+<h3 class="function"><a name="delete_index-2">delete_index/2</a></h3>
+<div class="spec">
+<p><tt>delete_index(Url, Index) -&gt; any()</tt></p>
+</div><p>delete index</p>
+
+<h3 class="function"><a name="delete_mapping-3">delete_mapping/3</a></h3>
+<div class="spec">
+<p><tt>delete_mapping(Url, Index, Type) -&gt; any()</tt></p>
+</div><p>delete mapping</p>
+
+<h3 class="function"><a name="delete_percolate-3">delete_percolate/3</a></h3>
+<div class="spec">
+<p><tt>delete_percolate(Url, Index, PercolateName) -&gt; any()</tt></p>
+</div><p>delete percolator.</p>
+
+<h3 class="function"><a name="delete_template-2">delete_template/2</a></h3>
+<div class="spec">
+<p><tt>delete_template(Url, Tempname) -&gt; any()</tt></p>
+</div><p>delete template.</p>
+
+<h3 class="function"><a name="exist-5">exist/5</a></h3>
+<div class="spec">
+<p><tt>exist(Url, Index, Type, Docid, Params) -&gt; any()</tt></p>
+</div><p>check typed JSON document exist
+  return true| false;</p>
+
+<h3 class="function"><a name="explain-6">explain/6</a></h3>
+<div class="spec">
+<p><tt>explain(Url, Index, Type, Docid, Params, Json) -&gt; any()</tt></p>
+</div><p>explain.
+  I didn't test this function!</p>
+
+<h3 class="function"><a name="flush_and_fresh-2">flush_and_fresh/2</a></h3>
+<div class="spec">
+<p><tt>flush_and_fresh(Url, Indexes) -&gt; any()</tt></p>
+</div><p>flush.
+  Indexes: [index, ...].</p>
+
+<h3 class="function"><a name="flush_and_nofresh-2">flush_and_nofresh/2</a></h3>
+<div class="spec">
+<p><tt>flush_and_nofresh(Url, Indexes) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="get-5">get/5</a></h3>
+<div class="spec">
+<p><tt>get(Url, Index, Type, Docid, Params) -&gt; any()</tt></p>
+</div><p>get typed JSON document.
+  set Json = [] to per get.</p>
+
+<h3 class="function"><a name="get_cluster_settings-1">get_cluster_settings/1</a></h3>
+<div class="spec">
+<p><tt>get_cluster_settings(Url) -&gt; any()</tt></p>
+</div><p>get cluster settings.</p>
+
+<h3 class="function"><a name="get_mapping-3">get_mapping/3</a></h3>
+<div class="spec">
+<p><tt>get_mapping(Url, Indexes, Types) -&gt; any()</tt></p>
+</div><p>get mapping
+  Indexes: [index, ...].
+  Types: [type, ...].</p>
+
+<h3 class="function"><a name="get_settings-2">get_settings/2</a></h3>
+<div class="spec">
+<p><tt>get_settings(Url, Index) -&gt; any()</tt></p>
+</div><p>get setting</p>
+
+<h3 class="function"><a name="get_template-2">get_template/2</a></h3>
+<div class="spec">
+<p><tt>get_template(Url, Tempname) -&gt; any()</tt></p>
+</div><p>get template.</p>
+
+<h3 class="function"><a name="health-3">health/3</a></h3>
+<div class="spec">
+<p><tt>health(Url, Indexes, Params) -&gt; any()</tt></p>
+</div><p>cluster health.</p>
+
+<h3 class="function"><a name="hot_threads-3">hot_threads/3</a></h3>
+<div class="spec">
+<p><tt>hot_threads(Url, Nodes, Params) -&gt; any()</tt></p>
+</div><p>get the current hot threads on each node in the cluster.</p>
+
+<h3 class="function"><a name="index-6">index/6</a></h3>
+<div class="spec">
+<p><tt>index(Url, Index, Type, Docid, Params, Json) -&gt; any()</tt></p>
+</div><p>index document. if Docid == "", it will automatic generate ID.
+  Url: "http://localhost:9200/".<br>
+  Index: index.<br>
+  Type: type.<br>
+  Params: [{key, value}, ...].<br></p>
+
+<h3 class="function"><a name="more_like_this-5">more_like_this/5</a></h3>
+<div class="spec">
+<p><tt>more_like_this(Url, Index, Type, Docid, Params) -&gt; any()</tt></p>
+</div><p>more like this.</p>
+
+<h3 class="function"><a name="multi_get-5">multi_get/5</a></h3>
+<div class="spec">
+<p><tt>multi_get(Url, Index, Type, Params, Json) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="multi_search-5">multi_search/5</a></h3>
+<div class="spec">
+<p><tt>multi_search(Url, Indexes, Types, Params, Json) -&gt; any()</tt></p>
+</div><p>multi search.
+  Indexes: [index, ...].
+  Types: [type, ...].
+  Json: [{Head, Body}, ...]</p>
+
+<h3 class="function"><a name="nodes_info-3">nodes_info/3</a></h3>
+<div class="spec">
+<p><tt>nodes_info(Url, Nodes, Params) -&gt; any()</tt></p>
+</div><p>nodes info.</p>
+
+<h3 class="function"><a name="nodes_stats-3">nodes_stats/3</a></h3>
+<div class="spec">
+<p><tt>nodes_stats(Url, Nodes, Params) -&gt; any()</tt></p>
+</div><p>nodes stats</p>
+
+<h3 class="function"><a name="open_index-2">open_index/2</a></h3>
+<div class="spec">
+<p><tt>open_index(Url, Index) -&gt; any()</tt></p>
+</div><p>open index</p>
+
+<h3 class="function"><a name="optimize-3">optimize/3</a></h3>
+<div class="spec">
+<p><tt>optimize(Url, Indexes, Params) -&gt; any()</tt></p>
+</div><p>optimize indexes.
+  Indexes: [index, ...].</p>
+
+<h3 class="function"><a name="percolate-5">percolate/5</a></h3>
+<div class="spec">
+<p><tt>percolate(Url, Index, PercolateName, Params, Json) -&gt; any()</tt></p>
+</div><p>register queries against an index, and then send percolate requests which include a doc, and geting back the queries that match on that doc out of the set of registed queries.</p>
+
+<h3 class="function"><a name="percolate_doc-5">percolate_doc/5</a></h3>
+<div class="spec">
+<p><tt>percolate_doc(Url, Index, Type, Params, Json) -&gt; any()</tt></p>
+</div><p>percolate document, get back matched queries.</p>
+
+<h3 class="function"><a name="put_mapping-5">put_mapping/5</a></h3>
+<div class="spec">
+<p><tt>put_mapping(Url, Indexes, Type, Params, Json) -&gt; any()</tt></p>
+</div><p>put mapping.
+  Indexes: [index, ...].</p>
+
+<h3 class="function"><a name="refresh-2">refresh/2</a></h3>
+<div class="spec">
+<p><tt>refresh(Url, Indexes) -&gt; any()</tt></p>
+</div><p>refresh indexes.
+  Indexes: [index, ...].</p>
+
+<h3 class="function"><a name="search_req_body-5">search_req_body/5</a></h3>
+<div class="spec">
+<p><tt>search_req_body(Url, Indexes, Types, Params, Json) -&gt; any()</tt></p>
+</div><p>search api - request body.
+  Indexes: [index, index, ...].
+  Types: [type, type, ...].</p>
+
+<h3 class="function"><a name="search_uri_req-4">search_uri_req/4</a></h3>
+<div class="spec">
+<p><tt>search_uri_req(Url, Indexes, Types, Params) -&gt; any()</tt></p>
+</div><p>search api - URI Request.
+  Indexes: [index, index, ...].
+  Types: [type, type, ...].</p>
+
+<h3 class="function"><a name="segments-2">segments/2</a></h3>
+<div class="spec">
+<p><tt>segments(Url, Indexes) -&gt; any()</tt></p>
+</div><p>Provide low level segments information that a Lucene index (shard level) is built with.
+  Indexes: [index, ...].</p>
+
+<h3 class="function"><a name="shutdown_nodes-3">shutdown_nodes/3</a></h3>
+<div class="spec">
+<p><tt>shutdown_nodes(Url, Nodes, Params) -&gt; any()</tt></p>
+</div><p>shut nodes</p>
+
+<h3 class="function"><a name="snapshot-2">snapshot/2</a></h3>
+<div class="spec">
+<p><tt>snapshot(Url, Indexes) -&gt; any()</tt></p>
+</div><p>snapshot/ backup.
+  Indexes: [index, ...].</p>
+
+<h3 class="function"><a name="state-2">state/2</a></h3>
+<div class="spec">
+<p><tt>state(Url, Params) -&gt; any()</tt></p>
+</div><p>cluster state</p>
+
+<h3 class="function"><a name="stats-3">stats/3</a></h3>
+<div class="spec">
+<p><tt>stats(Url, Indexes, Params) -&gt; any()</tt></p>
+</div><p>stats provide statistics on different operations happening on an index
+  Indexes: [index, ...].</p>
+
+<h3 class="function"><a name="status-3">status/3</a></h3>
+<div class="spec">
+<p><tt>status(Url, Indexes, Params) -&gt; any()</tt></p>
+</div><p>get a comprehensive status information of one or more indices.
+  Indexes: [index, ...].</p>
+
+<h3 class="function"><a name="template-3">template/3</a></h3>
+<div class="spec">
+<p><tt>template(Url, Tempname, Json) -&gt; any()</tt></p>
+</div><p>Index templates allow to define templates that will automatically be applied to new indices created.</p>
+
+<h3 class="function"><a name="update-6">update/6</a></h3>
+<div class="spec">
+<p><tt>update(Url, Index, Type, Docid, Params, Json) -&gt; any()</tt></p>
+</div><p>update update a document based on script provided.</p>
+
+<h3 class="function"><a name="update_settings-4">update_settings/4</a></h3>
+<div class="spec">
+<p><tt>update_settings(Url, Index, Params, Json) -&gt; any()</tt></p>
+</div><p>update settings</p>
+
+<h3 class="function"><a name="validate-5">validate/5</a></h3>
+<div class="spec">
+<p><tt>validate(Url, Index, Type, Params, Json) -&gt; any()</tt></p>
+</div><p>validate a potentially expensive query</p>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Sep 15 2012, 01:52:36.</i></p>
+</body>
+</html>

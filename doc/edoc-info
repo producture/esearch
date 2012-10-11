@@ -1,0 +1,3 @@
+{application,esearch}.
+{packages,[]}.
+{modules,[ehttp,esearch,esearch_app,esearch_sup]}.
